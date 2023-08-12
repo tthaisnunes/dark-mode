@@ -1,0 +1,19 @@
+<main [ngClass]="{'dark': isDarkModeOn, 'light': !isDarkModeOn}">
+  <div class="time">
+    <p>
+      {{timeNow | date : 'shortTime'}}
+    </p>
+  </div>
+  <div class="power-light">
+    <div class="power-light__img" [ngClass]="{'active': isDarkModeOn}"></div>
+  </div>
+
+  <div class="toggle">
+    <label for="dark-mode">
+      Dark Mode
+      <span class="check-box">
+        <input type="checkbox" id="dark-mode" name="dark-mode" [(ngModel)]="isDarkModeOn" (click)="toggleDarkMode()">
+      </span>
+    </label>
+  </div>
+</main>
