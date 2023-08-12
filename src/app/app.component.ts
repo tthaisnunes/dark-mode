@@ -20,7 +20,13 @@ export class AppComponent implements OnInit {
   checkUsersTheme() {
     const userHasDarkMode = window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches;
-    userHasDarkMode ? this.document.body.classList.add('dark') : this.document.body.classList.add('light');
+    if(userHasDarkMode) {
+      this.document.body.classList.add('dark')
+      this.isDarkModeOn = true;
+    } else {
+      this.document.body.classList.add('light');
+      this.isDarkModeOn = false;
+    }
   }
 
   toggleDarkMode() {
